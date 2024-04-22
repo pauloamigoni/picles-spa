@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import styles from './Card.module.css';
 import { ImageBase64 } from '../ImageBase64/ImageBase64';
 import { Button } from '../Button';
