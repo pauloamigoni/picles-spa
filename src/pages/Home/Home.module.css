@@ -1,13 +1,124 @@
-.container {
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --remReset: 62.5%;
+}
+html {
+  font-size: var(--remReset);
+}
+.home {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-size: 3.4rem;
+  background-color: #00a47b;
+  background-image:none;
+  transition-property: margin;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition: background-image 2s smooth;
+  overflow: hidden; /* Impede a rolagem vertical */
+}
+.login-container {
+  background-color: rgba(255, 255, 255, 0.6); /* Branco com 80% de opacidade */
+  width: 100%;
+  height: auto; /* Alterado de 100vh para auto para ajustar altura automaticamente */
+  transition-property: border-radius, height;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  position: absolute;
+  left: 20px; /* Ajuste para alinhar à esquerda */
+  top: 20px;
+  max-width: 550px;
+  border-radius: 20px;
+}
+
+.login-content {
   display: flex;
   flex-direction: column;
-  align-self: center;
   align-items: center;
-  width: 100%;
-  max-width: 340px;
-  gap: var(--spacing-md);
-
- a{
-    width: 100%;
-  }
+  justify-content: center;
+  padding: 42px 20px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
 }
+.login-content p {
+  font-size: 1.1rem;
+  margin-top: 5rem;
+}
+.login-content p strong {
+  color: #87a922;
+}
+.login-content_header {
+  text-align: center;
+}
+.login-content_header span#logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.login-content_header h2 {
+   font-family: "Freckle Face", system-ui;
+  font-size: 4.5rem;
+  line-height: 1;
+  margin: 25px 0;
+}
+.login-content_header p {
+
+  font-size: 2rem;
+  line-height: 1;
+   font-weight: 200;
+  font-style: normal;
+  margin: 25px 0;
+}
+
+form {
+  display: flex;
+  width: 100%; /* Garante que o formulário ocupe toda a largura do contêiner */
+}
+
+.login-form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+}
+
+.login-form a { /* Estilo aplicado diretamente aos elementos <Link> dentro do .login-form */
+  flex: 1;  /* Cada link ocupa metade do espaço disponível */
+  text-decoration: none; /* Remove a decoração de texto dos links, se necessário */
+  color: inherit; /* Herda a cor do texto, se necessário */
+}
+
+.login-form button {
+  width: 100%; /* Faz com que cada botão expanda para preencher todo o espaço disponível do Link */
+  text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+
+
+@media screen and (min-width: 700px) {
+  body {
+    background-color: #00a47b;
+    background-image: url("../../assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+   
+  }
+  .login-container {
+    position: absolute;
+    left: 20px; /* Modificado de 'right' para 'left' */
+    max-width: 550px;
+    height: auto;
+    top: 20px;
+  }
+  
+}
+

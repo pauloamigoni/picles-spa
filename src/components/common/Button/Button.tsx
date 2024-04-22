@@ -1,28 +1,37 @@
 import { ButtonHTMLAttributes } from "react"
-import { ButtonVariant } from "./Button.constants"  
+import { ButtonVariant } from "./Button.constants"
 import styles from './Button.module.css'
+import * as icons from "react-icons/tfi";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: ButtonVariant
+    variant?: ButtonVariant;
+    icon?: boolean;
+    iconName?: keyof typeof icons;
+
 }
 
-export function Button({ variant = ButtonVariant.Default ,children, ...rest}: Readonly<IButton>) {
-    let buttonClass = styles.buttonBase
-    switch(variant) {
+export function Button({ variant = ButtonVariant.Default, icon = false, iconName = 'TfiHeart', children, ...rest }: Readonly<IButton>) {
+    let buttonClass = styles.buttonBase;
+    const IconComponent = icons[iconName];
+    switch (variant) {
         case ButtonVariant.Default:
-            buttonClass += ` ${styles.buttonDefault}`
-            break
+            buttonClass += ` ${styles.buttonDefault}`;
+            break;
         case ButtonVariant.Disabled:
-            buttonClass += ` ${styles.buttonDisabled}`
-            break
+            buttonClass += ` ${styles.buttonDisabled}`;
+            break;
         case ButtonVariant.Outlined:
-            buttonClass += ` ${styles.buttonOutlined}`
-            break
+            buttonClass += ` ${styles.buttonOutlined}`;
+            break;
         case ButtonVariant.Text:
-            buttonClass += ` ${styles.buttonText}`
-            break
-    
+            buttonClass += ` ${styles.buttonText}`;
+            break;
     }
-    return <button {...rest} className={buttonClass} >{children}</button>
-    
+
+    return (
+        <button {...rest} className={buttonClass}>
+            {icon && IconComponent && <IconComponent size={11} style={{ marginRight: 5 }} />}
+            {children}
+        </button>
+    );
 }

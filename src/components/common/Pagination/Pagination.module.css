@@ -1,21 +1,51 @@
+/* Estilo base para a paginação */
 .pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0;
 }
 
-.pagination button {
-  border: none;
-  background-color: transparent;
-  font-size: var(--font-size-lg);
-  color: var(--color-gray-300);
+/* Estilo para cada item da paginação */
+.pagination li {
+  margin: 0 5px;
+}
+
+/* Botões e links comuns */
+.pagination a, .pagination button {
+  border: 1px solid #ddd; /* Borda sutil */
+  background-color: #f8f9fa; /* Cor de fundo claro */
+  font-size: 1rem;
+  color: #6c757d; /* Cor cinza para o texto */
+  text-align: center;
+  line-height: 35px; /* Altura da linha para centralizar verticalmente */
+  min-width: 35px; /* Largura mínima para manter o aspecto quadrado */
   cursor: pointer;
+  transition: all 0.3s; /* Transição suave para os efeitos de hover e focus */
+  border-radius: 5px; /* Borda arredondada */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para dar profundidade */
 }
 
-.pagination .active button {
-  color: var(--color-primary);
+/* Efeito de hover para os botões e links */
+.pagination a:hover, .pagination button:hover {
+  background-color: #e9ecef; /* Cor de fundo mais clara quando passa o mouse */
+  border-color: #dee2e6; /* Borda um pouco mais destacada no hover */
+}
+
+/* Estilo para o item ativo */
+.pagination .active a, .pagination .active button {
+  background-color: #007bff; /* Cor de fundo primária para o item ativo */
+  color: white; /* Cor branca para o texto no item ativo */
+  border-color: #007bff; /* Borda da mesma cor do fundo para o item ativo */
+}
+
+/* Estilo para o botão 'Previous' e 'Next' desabilitados */
+.pagination .disabled a, .pagination .disabled button {
+  color: #ced4da; /* Cor mais clara para indicar desabilitado */
+  cursor: not-allowed; /* Cursor para indicar que o botão está desabilitado */
+  background-color: #f8f9fa; /* Mantém a cor de fundo padrão */
+  border-color: #ddd; /* Mantém a cor da borda padrão */
 }
