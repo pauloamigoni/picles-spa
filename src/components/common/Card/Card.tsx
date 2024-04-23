@@ -1,8 +1,7 @@
 
 import styles from './Card.module.css';
 import { ImageBase64 } from '../ImageBase64/ImageBase64';
-import { Button } from '../Button';
-import { ButtonVariant } from '../Button';
+import { Button, ButtonVariant } from '../Button';
 
 interface ICard {
     href: string;

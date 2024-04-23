@@ -1,6 +1,6 @@
 .container {
-  width: 28em; /* Largura fixa do container do card */
-  height: 28em; /* Altura fixa do container do card */
+  width: 20em; /* Largura fixa do container do card */
+  height: 20em; /* Altura fixa do container do card */
   margin: 2em auto; /* Margem para separação entre cards se necessário */
   position: relative;
   perspective: 1000px; /* Define uma perspectiva para o efeito 3D */

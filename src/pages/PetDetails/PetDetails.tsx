@@ -6,10 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 import { getPetById } from "../../services/pets/getPetById";
 import { ImageBase64 } from "../../components/common/ImageBase64/ImageBase64";
 import { Skeleton } from "../../components/common/Skeleton";
-import { usePetList } from "../../hook/usePetList";
+// import { usePetList } from "../../hook/usePetList";
 import { useShelter } from "../../hook/useShelter";
 import { Button, ButtonVariant } from "../../components/common/Button";
 import whatsapp from '../../assets/whatsapp.svg';
+import { PiWhatsappLogo } from "react-icons/pi";
 
 export function PetDetails() {
 
@@ -62,17 +63,11 @@ export function PetDetails() {
                                         <h1>{petData?.name}</h1>
                                         <span>Sobre o Pet:</span>
                                         <p>{petData?.bio}</p>
-                                        <a
-                                            href={`https://wa.me/${shelterData?.shelterWhatsApp}?text='Olá',
-                                             gostaria de saber mais sobre o pet ${petData?.name}`}
-                                            target="_blank"
-                                        >
-                                            <Button variant={ButtonVariant.Text} icon={true} iconName="PiWhatsappLogo">
-                                                <span className={styles.buttonWhatsapp} >
-                                                    <img src={whatsapp} alt="whatsapp" />
-                                                    Entre e contato com o abrigo
-                                                </span>
-                                            </Button>
+
+
+                                        <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsApp}?text='Olá',
+                                             gostaria de saber mais sobre o pet ${petData?.name}`}>
+                                            <PiWhatsappLogo size={28} aria-hidden="true" /> Entre em contato com o abrigo
                                         </a>
                                     </>
                                 )}

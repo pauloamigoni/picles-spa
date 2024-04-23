@@ -52,3 +52,65 @@
   flex-direction: row;
   gap: var(--spacing-sm);
 }
+.float-button {
+  display: flex;
+  align-items: center; /* Alinha os itens no centro verticalmente */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente, caso você queira */
+  text-decoration: none;
+  position: fixed;
+  padding: 10px 15px; /* Ajuste o padding conforme necessário */
+  bottom: 30px;
+  right: 30px;
+  color: #fff;
+  background-color: #25D366;
+  border-radius: 25px 30px 5px 25px;
+  z-index: 100;
+  font-family: Arial;
+  font-size: 17px;
+  animation: whatsapp-animation 0.5s ease-in-out;
+  box-shadow: 1px 2px 5px 2px rgba(30,30,30,0.3);
+  transition: all 0.3s ease-out;
+  gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Esta classe adicional será para o ícone */
+.fa-whatsapp {
+  display: flex; /* Usar flex aqui também */
+  align-items: center;
+  justify-content: center;
+  font-size: 20px !important;
+}
+
+
+    .float-button:hover {
+         background-color: #128C7E;
+          color: #fff;
+    }
+
+    @keyframes whatsapp-animation {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%
+        }
+    }
+
+    @media screen and (max-width: 545px) {
+        span {
+            display: none;
+        }
+
+        .float-button {
+            bottom: 15px;
+            right: 15px;
+            width: 20px;
+            border-radius: 20px 20px 5px 20px;
+        }
+
+        .fa-whatsapp {
+            font-size: 22px !important;
+            padding: 4px;
+        }
+    }
