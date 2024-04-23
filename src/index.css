@@ -40,6 +40,15 @@ body,
   justify-content: center;
   align-items: start;
   /* background-color: var(--color-gray-100); */
+
+
+    background-color: #00a47b;
+    background-image: url("./assets/dog4.jpg");
+    background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Fixa a imagem de fundo, impedindo que ela role com a página */
+
 }
 
 body,

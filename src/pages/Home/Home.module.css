@@ -104,13 +104,14 @@ form {
 
 @media screen and (min-width: 700px) {
   body {
+    position: absolute;
     background-color: #00a47b;
     background-image: url("../../assets/background.jpg");
-    background-size: cover;
+    background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed; /* Fixa a imagem de fundo, impedindo que ela role com a página */
     height: 100vh;
-   
   }
   .login-container {
     position: absolute;
@@ -119,6 +120,4 @@ form {
     height: auto;
     top: 20px;
   }
-  
 }
-
