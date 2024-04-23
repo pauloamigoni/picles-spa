@@ -14,7 +14,7 @@ import whatsapp from '../../assets/whatsapp.svg';
 export function PetDetails() {
 
     const { id } = useParams();
-    const { data: shelterData, isLoading: isLoadingShelter } = useShelter();
+    const { data: shelterData } = useShelter();
 
     const { data: petData, isLoading: petsIsLoading, isError: petIsError } = useQuery({
         queryKey: ['getPetById', id],
@@ -24,13 +24,13 @@ export function PetDetails() {
     })
 
 
-    const urlParams = {
-        page: 1,
-        itemsPerPage: 3,
-        type: petData?.type
-    }
+    // const urlParams = {
+    //     page: 1,
+    //     itemsPerPage: 3,
+    //     type: petData?.type
+    // }
 
-    const { data: data2, isLoading: loading2 } = usePetList(urlParams);
+    // const { data: data2, isLoading: loading2 } = usePetList(urlParams);
 
 
 
