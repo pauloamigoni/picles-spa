@@ -45,3 +45,10 @@
   align-items: center;
   gap: var(--spacing-sm);
 }
+
+.columns {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: var(--spacing-sm);
+}
