@@ -1,9 +1,10 @@
 .container {
-  width: 20em; /* Largura fixa do container do card */
-  height: 20em; /* Altura fixa do container do card */
-  margin: 2em auto; /* Margem para separação entre cards se necessário */
-  position: relative;
-  perspective: 1000px; /* Define uma perspectiva para o efeito 3D */
+    width: 28em;
+    height: 28em;
+    margin: 2em auto;
+    position: relative;
+    perspective: 1000px;
+    padding: 2em;
 }
 
 .flip3D {
@@ -29,9 +30,7 @@
   gap: var(--spacing-xs);
   text-decoration: none;
    border-radius: 12px;
-  
 }
-
 
 .flip3D > .back {
   background: #fff; /* Cor de fundo do verso */
@@ -62,8 +61,10 @@
 }
 
 .card img {
-  width: 100%;
-  height: 180px;
+  width: 28em;
+  height: 28em;
+  max-width: 28em;
+  max-height: 28em;
   object-fit: cover;
   border-radius: 12px;
 }

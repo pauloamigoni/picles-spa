@@ -24,7 +24,7 @@ export function Pets() {
         type: searchParams.get('type') ?? '',
         gender: searchParams.get('gender') ?? '',
         size: searchParams.get('size') ?? '',
-        itemsPerPage: 3
+        itemsPerPage: 5
     }
 
     const { data, isLoading } = usePetList(urlParams);
@@ -108,7 +108,7 @@ export function Pets() {
                             <Card
                                 key={pet.id}
                                 href={`/pets/${pet.id}`}
-                                text={<><span><strong>{pet.name}</strong></span><br /><span>{pet.bio.slice(0, 150)} ...</span></>}
+                                text={<><span><strong>{pet.name}</strong></span><br /><span>{pet.bio.slice(0, 80)} ...</span></>}
                                 thumb={pet.photo}
                             />
                         ))
