@@ -9,7 +9,7 @@ import { Skeleton } from "../../components/common/Skeleton";
 // import { usePetList } from "../../hook/usePetList";
 import { useShelter } from "../../hook/useShelter";
 import { Button, ButtonVariant } from "../../components/common/Button";
-import whatsapp from '../../assets/whatsapp.svg';
+import whatsApp from '../../assets/whatsApp.svg';
 import { PiWhatsappLogo } from "react-icons/pi";
 
 export function PetDetails() {
@@ -63,7 +63,7 @@ export function PetDetails() {
                                         <h1>{petData?.name}</h1>
                                         <span>Sobre o Pet:</span>
                                         <p>{petData?.bio}</p>
-                                        <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsApp}?text=Olá, gostaria de saber mais sobre o pet ${petData?.name} `}>
+                                        <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsapp}?text=Olá, gostaria de saber mais sobre o pet ${petData?.name} `}>
                                             <PiWhatsappLogo size={28} aria-hidden="true" />
                                         </a>
                                     </>

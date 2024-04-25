@@ -68,14 +68,14 @@
   z-index: 100;
   font-family: Arial;
   font-size: 17px;
-  animation: whatsapp-animation 0.5s ease-in-out;
+  animation: whatsApp-animation 0.5s ease-in-out;
   box-shadow: 1px 2px 5px 2px rgba(30,30,30,0.3);
   transition: all 0.3s ease-out;
   gap: 10px; /* Espaço entre o ícone e o texto */
 }
 
 /* Esta classe adicional será para o ícone */
-.fa-whatsapp {
+.fa-whatsApp {
   display: flex; /* Usar flex aqui também */
   align-items: center;
   justify-content: center;
@@ -88,7 +88,7 @@
           color: #fff;
     }
 
-    @keyframes whatsapp-animation {
+    @keyframes whatsApp-animation {
         from {
             opacity: 0%;
         }
@@ -110,7 +110,7 @@
             border-radius: 20px 20px 5px 20px;
         }
 
-        .fa-whatsapp {
+        .fa-whatsApp {
             font-size: 22px !important;
             padding: 4px;
         }

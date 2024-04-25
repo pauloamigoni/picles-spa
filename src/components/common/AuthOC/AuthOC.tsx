@@ -3,7 +3,7 @@ import { useShelter } from "../../../hook/useShelter";
 
 export function AuthOC() {
     const { data, isLoading } = useShelter();
-    const canAccess = !!data?.shelterWhatsApp;
+    const canAccess = !!data?.shelterWhatsapp;
 
     if (isLoading) return null;
     if (!canAccess) return <Navigate to="/admin" />

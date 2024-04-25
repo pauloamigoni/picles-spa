@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  flex-basis: 300px;
+  flex-basis: 100%;
   gap: var(--spacing-sm);
 }
 
@@ -12,4 +12,13 @@
 .formError {
   color: var(--color-danger);
   margin: var(--spacing-xs) 0 0;
+}
+
+
+.content {
+  background-color: rgba(255, 255, 255, 0.8); /* Branco com 80% de opacidade */
+  width: 100%;
+  border-radius:10px;
+  padding: 3% 3%  3% 3% ;
+  margin: 3% 3% 3% 3% ;
 }

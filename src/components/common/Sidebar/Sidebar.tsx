@@ -8,7 +8,7 @@ export function Sidebar() {
     const { data } = useShelter();
 
     function validate(event: React.MouseEvent) {
-        const canAccess = !!data?.shelterWhatsApp;
+        const canAccess = !!data?.shelterWhatsapp;
 
         if (!canAccess) {
             event.preventDefault()
