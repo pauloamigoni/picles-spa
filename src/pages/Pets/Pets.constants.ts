@@ -17,11 +17,11 @@ export const filterColumns: IFilterColumns[] = [
                 text: 'Todos'
             },
             {
-                value: 'Dog',
+                value: 'cachorro',
                 text: 'Cachorro'
             },
             {
-                value: 'Cat',
+                value: 'gato',
                 text: 'Gato'
             },
             {
