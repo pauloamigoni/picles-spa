@@ -6,10 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getPetById } from "../../services/pets/getPetById";
 import { ImageBase64 } from "../../components/common/ImageBase64/ImageBase64";
 import { Skeleton } from "../../components/common/Skeleton";
-// import { usePetList } from "../../hook/usePetList";
 import { useShelter } from "../../hook/useShelter";
-import { Button, ButtonVariant } from "../../components/common/Button";
-import whatsApp from '../../assets/whatsApp.svg';
+
 import { PiWhatsappLogo } from "react-icons/pi";
 
 export function PetDetails() {
@@ -23,16 +21,6 @@ export function PetDetails() {
             return await getPetById(id ?? '')
         }
     })
-
-
-    // const urlParams = {
-    //     page: 1,
-    //     itemsPerPage: 3,
-    //     type: petData?.type
-    // }
-
-    // const { data: data2, isLoading: loading2 } = usePetList(urlParams);
-
 
 
     return (

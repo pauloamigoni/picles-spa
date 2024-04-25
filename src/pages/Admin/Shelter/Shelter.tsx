@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useHookFormMask } from "use-mask-input";
 import { toast } from "sonner";
 import { updateShelter } from "../../../services/shelter/updateShelter";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 
 const shelterSchema = z.object({
     name: z.string().min(2, 'O nome deve ter pelo menos 2 caracteres.')
