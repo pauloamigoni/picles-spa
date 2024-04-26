@@ -51,7 +51,7 @@ export function PetDetails() {
                                         <h1>{petData?.name}</h1>
                                         <span>Sobre o Pet:</span>
                                         <p>{petData?.bio}</p>
-                                        <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsapp}?text=Olá, gostaria de saber mais sobre o pet ${petData?.name} `}>
+                                        <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsApp}?text=Olá, gostaria de saber mais sobre o pet ${petData?.name} `}>
                                             <PiWhatsappLogo size={28} aria-hidden="true" />
                                         </a>
                                     </>

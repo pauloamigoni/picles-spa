@@ -8,9 +8,10 @@ interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
     icon?: boolean;
     iconName?: keyof typeof icons | keyof typeof iconsPi;
+    iconSize?: number;
 }
 
-export function Button({ variant = ButtonVariant.Default, icon = false, iconName = 'TfiHeart', children, ...rest }: Readonly<IButton>) {
+export function Button({ variant = ButtonVariant.Default, icon = false, iconName = 'TfiHeart', iconSize = 14, children, ...rest }: Readonly<IButton>) {
     let buttonClass = styles.buttonBase;
     const IconComponent = (iconName in icons ? icons[iconName as keyof typeof icons] : iconsPi[iconName as keyof typeof iconsPi]) as React.ComponentType<{ size: number; style: React.CSSProperties }>;
 
@@ -31,7 +32,7 @@ export function Button({ variant = ButtonVariant.Default, icon = false, iconName
 
     return (
         <button {...rest} className={buttonClass}>
-            {icon && IconComponent && <IconComponent size={11} style={{ marginRight: 5 }} />}
+            {icon && IconComponent && <IconComponent size={iconSize} style={{ marginRight: 5 }} />}
             {children}
         </button>
     );

@@ -5,6 +5,7 @@ import { PetDetails } from "./pages/PetDetails";
 import { Shelter } from "./pages/Admin/Shelter/Shelter";
 import { PetsList } from "./pages/Admin/PetList/PetList";
 import { AuthOC } from "./components/common/AuthOC/AuthOC";
+import { PetForm } from './pages/Admin/PetForm/PetForm'
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
                     {
                         index: true,
                         element: <PetsList />
+                    },
+                    {
+                        path: '/admin/pets/new',
+                        element: <PetForm />,
+                    },
+                    {
+                        path: '/admin/pets/:id',
+                        element: <PetForm />,
                     }]
             }
         ]

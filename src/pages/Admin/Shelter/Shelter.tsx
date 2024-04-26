@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Button } from "../../../components/common/Button";
+import { Button, ButtonVariant } from '../../../components/common/Button';
 import { Input } from "../../../components/common/Input";
 import { Panel } from "../../../components/layout/Panel";
 import styles from './Shelter.module.css'
@@ -9,6 +9,10 @@ import { useHookFormMask } from "use-mask-input";
 import { toast } from "sonner";
 import { updateShelter } from "../../../services/shelter/updateShelter";
 import { useQueryClient } from "@tanstack/react-query";
+
+import { useEffect } from 'react'
+import { Skeleton } from '../../../components/common/Skeleton'
+import { useShelter } from "../../../hook/useShelter";
 
 const shelterSchema = z.object({
     name: z.string().min(2, 'O nome deve ter pelo menos 2 caracteres.')
@@ -27,13 +31,25 @@ const shelterSchema = z.object({
 type ShelterSchema = z.infer<typeof shelterSchema>;
 
 export function Shelter() {
-const  { handleSubmit, register, formState } = useForm<ShelterSchema>({
+    const { handleSubmit, register, formState, reset } = useForm<ShelterSchema>({
   
     resolver: zodResolver(shelterSchema)
 });
 
 const registerWithMask = useHookFormMask(register)
 const queryClient = useQueryClient()
+    const { data, isLoading } = useShelter()
+
+    useEffect(() => {
+        if (!isLoading && data) {
+            reset({
+                name: data.shelterName,
+                email: data.shelterEmail,
+                phone: data.shelterPhone,
+                whatsApp: data.shelterWhatsApp,
+            })
+        }
+    }, [data, isLoading, reset])
 
 async function submit ({name, email, phone, whatsApp}: ShelterSchema) {
     const toastId = toast.loading('Salvando dados...')
@@ -63,7 +79,8 @@ queryClient.invalidateQueries({queryKey: ['get-shelter']})
  
     return (
         <Panel>
-     
+            {isLoading && <Skeleton count={4} width={320} height={32} />}
+            {!isLoading && (
             <form className={styles.container} onSubmit={handleSubmit(submit)} >
                 <div className={styles.content}>
                 <div>
@@ -83,9 +100,22 @@ queryClient.invalidateQueries({queryKey: ['get-shelter']})
                     {formState.errors?.whatsApp && <p className={styles.formError}>{formState.errors?.whatsApp.message}</p>}
                 </div>
                 
-                <Button type="submit">Salvar Dados</Button>
+                        <Button
+                            type="submit"
+                            icon={true}
+                            iconName="PiBone"
+                            iconSize={14}
+                            variant={
+                                !formState.isDirty || formState.isSubmitting
+                                    ? ButtonVariant.Disabled
+                                    : ButtonVariant.Default
+                            }
+                        >
+                            Salvar dados
+                        </Button>
             </div>
             </form>
+            )}
         </Panel>
     );
 } 
