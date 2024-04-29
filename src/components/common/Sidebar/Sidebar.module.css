@@ -1,19 +1,228 @@
-.sidebar {
+/* NavBar.module.css */
+:root {
+    --background: #9c88ff;
+    --navbarWidth: 256px;
+    --navbarWidthMin: 80px;
+    --navbarDarkPrimary: #18283b;
+    --navbarDarkSecondary: #2c3e50;
+    --navbarLightPrimary: #f5f6fa;
+    --navbarLightSecondary: #8392a5;
+}
+
+
+.navToggle:checked ~ .navHeader {
+  width: calc(var(--navbar-width-min) - 16px);
+}
+.navToggle:checked ~ #nav-content, .navToggle:checked ~ #nav-footer {
+  width: var(--navbar-width-min);
+}
+.navToggle:checked ~ .navHeader .navTitle {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s;
+}
+.navToggle:checked ~ .navHeader label[for=nav-toggle] {
+  left: calc(50% - 8px);
+  transform: translate(-50%);
+}
+.navToggle:checked ~ .navHeader .navToggleBurger {
+  background: var(--navbar-light-primary);
+}
+.navToggle:checked ~ .navHeader .navToggleBurger:before, .navToggle:checked ~ .navHeader .navToggleBurger::after {
+  width: 16px;
+  background: var(--navbar-light-secondary);
+  transform: translate(0, 0) rotate(0deg);
+}
+.navToggle:checked ~ .navContent .navButton span {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.navToggle:checked ~ .navContent .navButton .fas {
+  min-width: calc(100% - 16px);
+}
+.navToggle:checked ~ .navFooter .navFooterAvatar {
+  margin-left: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.navToggle:checked ~ .navFooter .navFooterTitlebox, .navToggle:checked ~ .navFooter label[for=nav-footer-toggle] {
+  opacity: 0;
+  transition: opacity 0.1s;
+  pointer-events: none;
+}
+
+
+.navBar {
+    position: absolute;
+    left: 1vw;
+    top: 1vw;
+    height: calc(100% - 2vw);
+    background: var(--navbarDarkPrimary);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    color: var(--navbarLightPrimary);
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+}
+
+
+.navToggleChecked.navHeader {
+  width: calc(var(--navbarWidthMin) - 16px);
+}
+
+.navToggleChecked.navContent, .navToggleChecked.navFooter {
+  width: var(--navbarWidthMin);
+}
+
+.navToggleChecked.navHeader .navTitle {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s;
+}
+
+.navToggleChecked.navHeader .labelForNavToggle {
+  left: calc(50% - 8px);
+  transform: translate(-50%);
+}
+
+.navToggleChecked.navHeader .navToggleBurger {
+  background: var(--navbarLightPrimary);
+}
+
+.navToggleChecked.navHeader .navToggleBurgerBefore, .navToggleChecked.navHeader .navToggleBurgerAfter {
+  width: 16px;
+  background: var(--navbarLightSecondary);
+  transform: translate(0, 0) rotate(0deg);
+}
+
+.navToggleChecked.navContent .navButton span {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.navToggleChecked.navContent .navButton .fas {
+  min-width: calc(100% - 16px);
+}
+
+.navToggleChecked.navFooter .navFooterAvatar {
+  margin-left: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.navToggleChecked.navFooter .navFooterTitlebox, .navToggleChecked.navFooter .labelForNavFooterToggle {
+  opacity: 0;
+  transition: opacity 0.1s;
+  pointer-events: none;
+}
+
+
+.navBar hr {
+  margin: 0;
+  position: relative;
+  left: 16px;
+  width: calc(100% - 32px);
+  border: none;
+  border-top: solid 1px var(--navbarDarkSecondary);
+}
+
+.navBar a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.navBar input[type=checkbox] {
+  display: none;
+}
+
+.navHeader {
+  position: relative;
+  width: var(--navbarWidth);
+  left: 16px;
+  width: calc(var(--navbarWidth) - 16px);
+  min-height: 80px;
+  background: var(--navbarDarkPrimary);
+  border-radius: 16px;
+  z-index: 2;
   display: flex;
-  flex-basis: 240px;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-direction: column;
-  height: 100vh;
-  background-color: var(--color-primary);
-  padding: var(--spacing-xxl) var(--spacing-xl);
-  gap: var(--spacing-lg);
+  align-items: center;
+  transition: width 0.2s;
 }
 
-.sidebar a {
-  color: var(--color-white);
+.navHeader hr {
+  position: absolute;
+  bottom: 0;
 }
 
-.sidebar a.active {
-  font-weight: var(--font-weight-bold);
+.navTitle {
+  font-size: 1.5rem;
+  transition: opacity 1s;
 }
+
+.labelForNavToggle {
+  position: absolute;
+  right: 0;
+  width: 3rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navToggleBurger {
+  position: relative;
+  width: 16px;
+  height: 2px;
+  background: var(--navbarDarkPrimary);
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+
+.navToggleBurgerBefore, .navToggleBurgerAfter {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 10px;
+  height: 2px;
+  background: var(--navbarLightPrimary);
+  border-radius: 99px;
+  transform: translate(2px, 8px) rotate(30deg);
+  transition: 0.2s;
+}
+
+.navToggleBurgerAfter {
+  top: 6px;
+  transform: translate(2px, -8px) rotate(-30deg);
+}
+
+.navContent {
+  margin: -16px 0;
+  padding: 16px 0;
+  position: relative;
+  flex: 1;
+  width: var(--navbarWidth);
+  background: var(--navbarDarkPrimary);
+  box-shadow: 0 0 0 16px var(--navbarDarkPrimary);
+  direction: rtl;
+  overflow-x: hidden;
+  transition: width 0.2s;
+}
+
+.navContentHighlight {
+  position: absolute;
+  left: 16px;
+  top: -70px;
+  width: calc(100% - 16px);
+  height: 54px;
+  background: var(--background);
+  background-attachment: fixed;
+  border-radius: 16px 0 0 16px;
+  transition: top 0.2s;
+}
+
+/* ... more styles ... */
+
+/* Make sure to convert all ID selectors to class selectors and rename classes as necessary */

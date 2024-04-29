@@ -6,11 +6,21 @@ import { Shelter } from "./pages/Admin/Shelter/Shelter";
 import { PetsList } from "./pages/Admin/PetList/PetList";
 import { AuthOC } from "./components/common/AuthOC/AuthOC";
 import { PetForm } from './pages/Admin/PetForm/PetForm'
+import { Sobre } from "./pages/Home/Sobre";
+import { Eventos } from "./pages/Home/Eventos";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Home />,
+    },
+    {
+        path: '/sobre',
+        element: <Sobre />,
+    },
+    {
+        path: '/eventos',
+        element: <Eventos />,
     },
     {
         path: '/pets',

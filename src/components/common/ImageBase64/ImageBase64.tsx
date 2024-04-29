@@ -1,5 +1,5 @@
 import { ImgHTMLAttributes } from "react"
- import thumbDefault from '../../../assets/thumb-default.jpg'
+ import thumbDefault from '../../../assets/thumb.png'
 
 interface IImageBase64 extends ImgHTMLAttributes<HTMLImageElement>{}
 export function ImageBase64({ src, onError, ...rest} : IImageBase64){
