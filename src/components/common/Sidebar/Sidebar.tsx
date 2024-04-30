@@ -1,26 +1,10 @@
-import { NavLink } from 'react-router-dom';
+
 import styles from './Sidebar.module.css';
-import { Toaster, toast } from 'sonner';
-import { useShelter } from '../../../hook/useShelter';
 
 import { FaPalette, FaImages, FaThumbtack, FaHeart, FaChartLine, FaFire, FaGem, FaCaretUp, } from 'react-icons/fa6'
 
 export function Sidebar() {
-
-    const { data } = useShelter();
-
-    function validate(event: React.MouseEvent) {
-        const canAccess = !!data?.shelterWhatsApp;
-
-        if (!canAccess) {
-            event.preventDefault()
-            toast.error('Acesso negado!')
-        }
-        toast.success('Acesso permitido! Bem vindo(a) ' + data?.shelterName)
-
-
-    }
-   
+  
     
     return (
         <div className={styles.navBar}>

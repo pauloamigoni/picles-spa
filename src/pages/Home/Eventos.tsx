@@ -1,14 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import { Button, ButtonVariant } from "../../components/common/Button";
-
 import { usePetList } from "../../hook/usePetList";
 import styles from './Home.module.css';
 import  semevento from '../../assets/semevento.png';
-import { CardHome } from "../../components/common/Card/CardHome";
+
 
 export function Eventos() {
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
 
 
     const urlParams = {
@@ -19,12 +17,6 @@ export function Eventos() {
         itemsPerPage: 3
     }
 
-    function changePage(page: number) {
-        setSearchParams((params) => {
-            params.set('page', String(page))
-            return params
-        })
-    }
 
     const { data } = usePetList(urlParams);
     console.log(data)

@@ -10,7 +10,7 @@ interface ICard {
     buttom?: boolean;
 }
 
-export function CardHome({ href, text, thumb, buttom = false }: ICard) {
+export function CardHome({ href, thumb, buttom = false }: ICard) {
 
 
     return (

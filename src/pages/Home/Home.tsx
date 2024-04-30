@@ -1,16 +1,23 @@
 import { useSearchParams } from "react-router-dom";
 import { Button, ButtonVariant } from "../../components/common/Button";
-
 import { usePetList } from "../../hook/usePetList";
 import styles from './Home.module.css';
-import  cat from '../../assets/cat.png';
 import { CardHome } from "../../components/common/Card/CardHome";
+import { Skeleton } from "../../components/common/Skeleton";
+import { useEffect, useState } from "react";
+
+
+interface Pet {
+    id: string;
+    name: string;
+    bio: string;
+    photo: string;
+}
 
 export function Home() {
 
-    const [searchParams, setSearchParams] = useSearchParams()
 
-
+    const [searchParams] = useSearchParams()
     const urlParams = {
         page: searchParams.get('page') ? Number(searchParams.get('page')) : 1,
         type: searchParams.get('type') ?? '',
@@ -19,15 +26,27 @@ export function Home() {
         itemsPerPage: 3
     }
 
-    function changePage(page: number) {
-        setSearchParams((params) => {
-            params.set('page', String(page))
-            return params
-        })
-    }
+    const { data, isLoading } = usePetList(urlParams);
+    const [shuffledData, setShuffledData] = useState<Pet[]>([]);
+  
 
-    const { data } = usePetList(urlParams);
-    console.log(data)
+
+    const shuffleArray = (array: Pet[]): Pet[] => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    };
+
+    useEffect(() => {
+        // console.log(data)
+        if (data && Array.isArray(data.items)) {
+            setShuffledData(shuffleArray([...data.items])); // Embaralha uma cópia do array data
+        }
+    }, [data]); // Dependência para que a operação seja refeita sempre que data mudar
+
+
 
    return (
      
@@ -79,8 +98,18 @@ export function Home() {
                     <div className={styles.containerRight}>
                    <span className={styles.titleHome}>Adote uma Estrela</span>
                           <div className={styles.cardsContainerLeft}>
+
+                       {isLoading && (
+                           <div className={styles.skeleton}>
+                               <Skeleton circle={false} width={180} height={180} />
+                               <Skeleton width={180} height={24} style={{ marginTop: 20 }} />
+                           </div>
+                       )}
+
+                       {!isLoading && (
+                        <>
                             {
-                                data?.items.map((pet) => (
+                                shuffledData?.map((pet) => (
                                     <CardHome
                                         key={pet.id}
                                         href={`/pets/${pet.id}`}
@@ -90,12 +119,25 @@ export function Home() {
                                     />
                                 ))
                             }
+                            </>
+                        )}
+
+
                         </div>
 <br />
                    <span className={styles.titleHome}>Confira os últimos pets adotados</span>
                    <div className={styles.cardsContainerRight}>
+
+                       {isLoading && (
+                           <div className={styles.skeleton}>
+                               <Skeleton circle={false} width={180} height={180} />
+                               
+                           </div>
+                       )}
+                       {!isLoading && (
+                           <>
                        {
-                           data?.items.map((pet) => (
+                           shuffledData?.map((pet) => (
                                <CardHome
                                    key={pet.id}
                                    href={`/pets/${pet.id}`}
@@ -104,6 +146,8 @@ export function Home() {
                                />
                            ))
                        }
+                       </>
+                    )}
                    </div>
                         
                     </div>

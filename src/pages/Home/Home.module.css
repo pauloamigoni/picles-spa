@@ -11,7 +11,7 @@
   font-family: "Luckiest Guy", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 28px;
   color: #fff;text-shadow: 1px 2px 4px #000;
 }
 .subtitle{
@@ -122,7 +122,7 @@
 .titleHome{
   font-family: "Luckiest Guy", cursive;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;text-shadow: 1px 2px 4px #000;
 }
 
@@ -136,5 +136,81 @@
 @media (max-width: 768px) {
   .contentContainer {
     flex-direction: column; /* Empilha as divs verticalmente em telas menores */
+  }
+}
+
+
+
+
+.cardsShelter {
+  display: flex;
+  align-items: center;
+  width: 65vw;
+  max-width: 550px;
+  padding: 30px 10px 20px 0px;
+    background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  text-align: left;
+}
+
+.cardsShelter img {
+  max-width: 280px;
+  width: 28vw;
+  height: 200px;
+  object-fit: cover;
+  margin-left: -60px;
+  margin-right: 30px;
+  border-radius: inherit;
+  box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
+}
+
+.cardsShelter h2 {
+  font-size: 22px;
+  margin-right: 30px;
+}
+
+.cardsShelter h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(0 0 0 / 90%);
+}
+
+.cardsShelter p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(0 0 0 / 70%);
+  margin-bottom: 24px;
+}
+
+.cardsShelter button {
+  border: 0;
+  background: linear-gradient(90deg, #5448de, #5448de);
+  color: #f8f8f8;
+  font-family: inherit;
+  padding: 16px 26px;
+  font-size: 16px;
+  border-radius: 40px;
+}
+
+@media (width <= 740px) {
+  .cardsShelter {
+    margin: 0 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .cardsShelter h2 {
+    margin-right: 0;
+    font-size: 26px;
+    text-align: left;
+  }
+
+  .cardsShelter img {
+    margin: -100px 0 30px 0;
+    width: 100%;
+    max-width: 1000px;
   }
 }

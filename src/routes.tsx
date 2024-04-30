@@ -8,6 +8,7 @@ import { AuthOC } from "./components/common/AuthOC/AuthOC";
 import { PetForm } from './pages/Admin/PetForm/PetForm'
 import { Sobre } from "./pages/Home/Sobre";
 import { Eventos } from "./pages/Home/Eventos";
+import { Abrigos } from "./pages/Home/Abrigos";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     {
         path: '/eventos',
         element: <Eventos />,
+    },
+    {
+        path: '/abrigos',
+        element: <Abrigos />,
     },
     {
         path: '/pets',

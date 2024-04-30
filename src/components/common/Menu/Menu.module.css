@@ -10,8 +10,8 @@
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
-  letter-spacing: .3rem;
-  font-size: 18px;
+  letter-spacing: .1rem;
+  font-size: 14px;
 }
 
  .link:not(:last-child) {
@@ -27,4 +27,19 @@
   bottom: -6px;
   left: 0;
   right: 0;
+}
+
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #DAECEE;
+  color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 6px solid #928be8;
 }

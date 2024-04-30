@@ -1,15 +1,19 @@
-import React from 'react';
 import styles from './layout.module.css';
 import devpira from './assets/img/Logo.svg';
 import pecege from './assets/img/pecege.png';
 import { Menu } from './components/common/Menu';
 
-export function Layout({ children }) {
+
+interface ILayout {
+    children: React.ReactNode; // Definindo o tipo de children como React.ReactNode
+}
+
+export function Layout({ children } : ILayout) {
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
+          
                 <Menu />
-            </header>
+           
             <main className={styles.mainContent}>
                 <section className={styles.hero}>
                     {children}
