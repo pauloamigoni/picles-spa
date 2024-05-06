@@ -1,71 +1,57 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Home } from "./pages/Home/Home";
-import { Pets } from "./pages/Pets";
-import { PetDetails } from "./pages/PetDetails";
-import { Shelter } from "./pages/Admin/Shelter/Shelter";
-import { PetsList } from "./pages/Admin/PetList/PetList";
-import { AuthOC } from "./components/common/AuthOC/AuthOC";
-import { PetForm } from './pages/Admin/PetForm/PetForm'
-import { Sobre } from "./pages/Home/Sobre";
-import { Eventos } from "./pages/Home/Eventos";
-import { Abrigos } from "./pages/Home/Abrigos";
+import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { Layout } from './layout';
+import { Home } from './pages/Home/Home';
+import { Pets } from './pages/Pets';
+import { PetDetails } from './pages/PetDetails';
+import { Shelter } from './pages/Admin/Shelter/Shelter';
+import { PetsList } from './pages/Admin/PetList/PetList';
+import { AuthOC } from './components/common/AuthOC/AuthOC';
+import { PetForm } from './pages/Admin/PetForm/PetForm';
+import { Sobre } from './pages/Home/Sobre';
+import { Eventos } from './pages/Home/Eventos';
+import { Abrigos } from './pages/Home/Abrigos';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home />,
+        element: <Layout><Home /></Layout>,
     },
     {
         path: '/sobre',
-        element: <Sobre />,
+        element: <Layout><Sobre /></Layout>,
     },
     {
         path: '/eventos',
-        element: <Eventos />,
+        element: <Layout><Eventos /></Layout>,
     },
     {
         path: '/abrigos',
-        element: <Abrigos />,
+        element: <Layout><Abrigos /></Layout>,
     },
     {
         path: '/pets',
-        children: [{
-            index: true,
-            element: <Pets />
-        },
-        {
-            path: '/pets/:id',
-            element: <PetDetails />,
-        }
+        element: <Layout><Outlet /></Layout>,
+        children: [
+            { index: true, element: <Pets /> },
+            { path: ':id', element: <PetDetails /> },
         ],
     },
     {
         path: '/admin',
+        element: <Layout><Outlet /></Layout>,
         children: [
+            { index: true, element: <Shelter /> },
             {
-                index: true,
-                element: <Shelter />,
-            },
-            {
-                path: '/admin/pets',
+                path: 'pets',
                 element: <AuthOC />,
                 children: [
-                    {
-                        index: true,
-                        element: <PetsList />
-                    },
-                    {
-                        path: '/admin/pets/new',
-                        element: <PetForm />,
-                    },
-                    {
-                        path: '/admin/pets/:id',
-                        element: <PetForm />,
-                    }]
+                    { index: true, element: <PetsList /> },
+                    { path: 'new', element: <PetForm /> },
+                    { path: ':id', element: <PetForm /> },
+                ]
             }
         ]
     },
+]);
 
-])
-
-export default router
+export default router;

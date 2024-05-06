@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredericka+the+Great&family=Luckiest+Guy&display=swap');
 
  .link { 
-  font-family: "Bubblegum Sans", sans-serif;
+  /* font-family: "Bubblegum Sans", sans-serif; */
   text-decoration: none;
   color: rgba(0, 0, 0, 0.6);
   padding: 0.5em 1em;
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
-  letter-spacing: .1rem;
+  /* letter-spacing: .1rem; */
   font-size: 14px;
 }
 

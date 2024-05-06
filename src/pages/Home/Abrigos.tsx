@@ -1,6 +1,7 @@
 import styles from './Home.module.css';
 import dog from '../../assets/dog.jpg';
 import { useShelter } from "../../hook/useShelter";
+import { FaWhatsapp, FaEnvelope, FaPhone } from "react-icons/fa6";
 
 export function Abrigos() {
 
@@ -24,10 +25,10 @@ export function Abrigos() {
                     <img src={dog}/>
                     <div>
                             <h2>{data?.shelterName}</h2>
-                            <h3>{data?.shelterEmail}</h3>
-                            <p>{data?.shelterPhone}<br />
-                            {data?.shelterWhatsApp}</p>
-                       
+                            <h3><FaEnvelope /> {data?.shelterEmail}</h3>
+                            <p><FaPhone /> {data?.shelterPhone}<br />
+                            <FaWhatsapp />  {data?.shelterWhatsApp}</p>
+
                     </div>
                 </div>
                     </div>

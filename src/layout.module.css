@@ -61,7 +61,7 @@ body {
   left: 0;
   right: 0;
   bottom: 60px;
-  background: rgba(170, 159, 253, 0.6); /* Branco com 50% de transparência */
+  background: rgba(170, 159, 253, 0.3); /* Branco com 50% de transparência */
   z-index: -1;
 }
 

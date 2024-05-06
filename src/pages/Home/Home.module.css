@@ -58,7 +58,7 @@
 }
 
 .containerLeft{
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     margin: 1%;
     padding: 1em; /* Espaçamento interno do contêiner */
@@ -67,7 +67,7 @@
 
 
 .containerRight{
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     margin: 1%;
      padding: 1em; /* Espaçamento interno do contêiner */

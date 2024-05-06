@@ -28,6 +28,7 @@ export function Home() {
 
     const { data, isLoading } = usePetList(urlParams);
     const [shuffledData, setShuffledData] = useState<Pet[]>([]);
+    const [shuffledDataRes, setShuffledDataRes] = useState<Pet[]>([]);
   
 
 
@@ -40,12 +41,16 @@ export function Home() {
     };
 
     useEffect(() => {
-        // console.log(data)
         if (data && Array.isArray(data.items)) {
-            setShuffledData(shuffleArray([...data.items])); // Embaralha uma cópia do array data
+            setShuffledData(shuffleArray([...data.items]));
         }
     }, [data]); // Dependência para que a operação seja refeita sempre que data mudar
 
+    useEffect(() => {
+        if (data && Array.isArray(data.items)) {
+            setShuffledDataRes(shuffleArray([...data.items]));
+        }
+    }, [data]); // Dependência para que a operação seja refeita sempre que data mudar
 
 
    return (
@@ -101,7 +106,7 @@ export function Home() {
 
                        {isLoading && (
                            <div className={styles.skeleton}>
-                               <Skeleton circle={false} width={180} height={180} />
+                               <Skeleton circle={false} width={180} height={180}  />
                                <Skeleton width={180} height={24} style={{ marginTop: 20 }} />
                            </div>
                        )}
@@ -137,7 +142,7 @@ export function Home() {
                        {!isLoading && (
                            <>
                        {
-                           shuffledData?.map((pet) => (
+                           shuffledDataRes?.map((pet) => (
                                <CardHome
                                    key={pet.id}
                                    href={`/pets/${pet.id}`}

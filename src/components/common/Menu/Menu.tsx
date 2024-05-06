@@ -1,17 +1,18 @@
 
+import { NavLink } from 'react-router-dom'
 import styles from './Menu.module.css'
 
 export function Menu() {
     return (
-        <>
-            <header className={styles.header}>
-                <a href="/" className={styles.link}>HOME</a>
-                <a href="/sobre" className={styles.link}>SOBRE</a>
-                <a href="/abrigos" className={styles.link}>Abrigo Amigo</a>
-                <a href="/eventos" className={styles.link}>EVENTOS</a>
-                <a href="/" className={styles.link}>FAÇA UMA DOAÇÃO</a>
-            </header>
-        </>
+        
+            <nav className={styles.header}>
+                <NavLink to="/" className={styles.link} >HOME</NavLink>
+                <NavLink to="/sobre" className={styles.link}>SOBRE</NavLink>
+                <NavLink to="/abrigos" className={styles.link}>Abrigo Amigo</NavLink>
+                <NavLink to="/eventos" className={styles.link}>EVENTOS</NavLink>
+                <NavLink to="/" className={styles.link}>FAÇA UMA DOAÇÃO</NavLink>
+            </nav>
+        
       
     )
 } 

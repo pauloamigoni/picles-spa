@@ -14,11 +14,12 @@ export function Layout({ children } : ILayout) {
           
                 <Menu />
            
-            <main className={styles.mainContent}>
-                <section className={styles.hero}>
-                    {children}
-                </section>
-            </main>
+                <main className={styles.mainContent}>
+                    <section className={styles.hero}>
+                        {children}
+                    </section>
+                </main>
+           
             <footer className={styles.footer}>
                 <img src={devpira} alt='Dev Pira' width={120} />
                 <p>Projeto de Desenvolvimento curso FullStack Pecege.</p>
