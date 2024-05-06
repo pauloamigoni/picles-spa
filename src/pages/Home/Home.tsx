@@ -87,6 +87,7 @@ export function Home() {
 
 
                    </p>
+                
 
                <div className={styles.buttonContainer}>
                    <Button variant={ButtonVariant.Default} icon={true} iconName='TfiHeart' className={styles.adoptButton}>
@@ -96,6 +97,9 @@ export function Home() {
                        Tenho um abrigo
                    </Button>
                </div>
+
+              
+
                </div>
                  
                 </div>
