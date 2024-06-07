@@ -22,12 +22,14 @@ export function PetDetails() {
         }
     })
 
+    console.log(petData)
 
     return (
         <Grid>
             <div className={styles.container}>
                 <Header showReturn={true} />
                 <main className={styles.content}>
+                    
                     {petsIsLoading && (
                         <div className={styles.skeleton}>
                             <Skeleton circle={true} width={200} height={200} />
@@ -37,7 +39,7 @@ export function PetDetails() {
                     {
                         !petsIsLoading && (
                             <>
-                                <ImageBase64 src={petData?.photo} className={styles.picture} alt={petData?.name} />
+                                <img src={petData?.img} className={styles.picture} alt={petData?.name} />
 
                                 {petIsError && (
                                     <>
@@ -50,7 +52,7 @@ export function PetDetails() {
                                     <>
                                         <h1>{petData?.name}</h1>
                                         <span>Sobre o Pet:</span>
-                                        <p>{petData?.bio}</p>
+                                        <p>{petData?.description}</p>
                                         <a className={styles['float-button']} target="_blank" href={`https://wa.me/${shelterData?.shelterWhatsApp}?text=Olá, gostaria de saber mais sobre o pet ${petData?.name} `}>
                                             <PiWhatsappLogo size={28} aria-hidden="true" />
                                         </a>

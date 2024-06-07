@@ -22,10 +22,10 @@ const shelterSchema = z.object({
         const digits = value.replace(/\D/g, '').length
         return digits >= 10 && digits <= 11
     }, 'Campo deve ser um telefone valido'),
-    whatsApp: z.string().refine(value => {
+    WhatsApp: z.string().refine(value => {
         const digits = value.replace(/\D/g, '').length
         return digits >= 10 && digits <= 11
-    },'O campo deve ser um whatsApp valido'),
+    },'O campo deve ser um WhatsApp valido'),
 })
 
 type ShelterSchema = z.infer<typeof shelterSchema>;
@@ -46,12 +46,12 @@ const queryClient = useQueryClient()
                 name: data.shelterName,
                 email: data.shelterEmail,
                 phone: data.shelterPhone,
-                whatsApp: data.shelterWhatsApp,
+                WhatsApp: data.shelterWhatsApp,
             })
         }
     }, [data, isLoading, reset])
 
-async function submit ({name, email, phone, whatsApp}: ShelterSchema) {
+async function submit ({name, email, phone, WhatsApp}: ShelterSchema) {
     const toastId = toast.loading('Salvando dados...')
     try {
         
@@ -60,7 +60,7 @@ queryClient.invalidateQueries({queryKey: ['get-shelter']})
         name, 
         email, 
         phone: phone.replace(/\D/g, ''),
-        whatsApp: whatsApp.replace(/\D/g, '')
+        WhatsApp: WhatsApp.replace(/\D/g, '')
      })
 
        toast.success('Dados salvos com sucesso', {
@@ -96,8 +96,8 @@ queryClient.invalidateQueries({queryKey: ['get-shelter']})
                     {formState.errors?.phone && <p className={styles.formError}>{formState.errors?.phone.message}</p>}
                 </div>
                 <div>
-                    <Input label="whatsApp"  {...registerWithMask('whatsApp', ['99 [9]9999-9999'])}/>
-                    {formState.errors?.whatsApp && <p className={styles.formError}>{formState.errors?.whatsApp.message}</p>}
+                    <Input label="WhatsApp"  {...registerWithMask('WhatsApp', ['99 [9]9999-9999'])}/>
+                    {formState.errors?.WhatsApp && <p className={styles.formError}>{formState.errors?.WhatsApp.message}</p>}
                 </div>
                 
                         <Button

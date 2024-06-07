@@ -27,6 +27,10 @@ const router = createBrowserRouter([
     {
         path: '/abrigos',
         element: <Layout><Abrigos /></Layout>,
+        // children: [
+        //     { index: true, element: <Abrigos /> },
+        //     { path: ':id', element: <ShelterDetails /> },
+        // ]
     },
     {
         path: '/pets',

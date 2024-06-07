@@ -9,7 +9,7 @@ export interface IUpdateShelterRequest {
     name: string;
     email: string;
     phone: string;
-    whatsApp: string;
+    WhatsApp: string;
 }
 
 export interface IUpdateShelterResponse extends IUpdateShelterRequest {}

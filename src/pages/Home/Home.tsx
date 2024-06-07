@@ -115,21 +115,21 @@ export function Home() {
                            </div>
                        )}
 
-                       {!isLoading && (
-                        <>
+                
                             {
-                                shuffledData?.map((pet) => (
+                                data?.map((pet) => (
+                                     
                                     <CardHome
                                         key={pet.id}
                                         href={`/pets/${pet.id}`}
-                                        text={<><span><strong>{pet.name}</strong></span><br /><span>{pet.bio.slice(0, 200)} ...</span></>}
+                                        text={<><span><strong>{pet.name}</strong></span><br /><span>{pet.description.slice(0, 200)} ...</span></>}
                                         thumb={pet.photo}
                                         buttom = {true}
                                     />
                                 ))
                             }
-                            </>
-                        )}
+                        
+                      
 
 
                         </div>
